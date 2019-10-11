@@ -43,11 +43,12 @@
 				</geometry>
 			</collision>
 		</link>
-		<joint name="base2wheel_${description}" type="fixed">
+		<joint name="base2wheel_${description}" type="revolute">
 			<parent link="base" />
 			<child link="wheel_${description}"/>
 			<origin xyz="${xyz}" rpy="-1.5707 0.0 0.0"/>
-			<!--limit effort=".1" velocity="99"/-->
+			<axis xyz="0 1 0"/>
+			<limit effort=".1" velocity="99"/>
 		</joint>
 	</xacro:macro>
 	<xacro:macro name="base">
@@ -68,7 +69,9 @@
 				<xacro:base/>
 			</visual>
 			<collision>
-				<xacro:base/>
+				<geometry>
+					<box size="0.94 0.78 1.98"/>
+				</geometry> 
 			</collision>
 	</link>
 	<link name="laser_horiz">
