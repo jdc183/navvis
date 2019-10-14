@@ -43,7 +43,7 @@
 				</geometry>
 			</collision>
 		</link>
-		<joint name="base2wheel_${description}" type="revolute">
+		<joint name="base2wheel_${description}" type="continuous">
 			<parent link="base" />
 			<child link="wheel_${description}"/>
 			<origin xyz="${xyz}" rpy="-1.5707 0.0 0.0"/>
